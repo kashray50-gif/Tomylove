@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Achu 🌷</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --pink: #f8b9d0;
+    --deep-pink: #d75d91;
+    --cream: #fff8ef;
+    --lavender: #e8dafa;
+    --green: #b9d7ad;
+    --text: #70475c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text);
+    background:
+        radial-gradient(ellipse at top left, #ffe0ec, transparent 48%),
+        radial-gradient(ellipse at bottom right, #e9ddff, transparent 45%),
+        linear-gradient(135deg, #fff8ef, #fff0f5, #f3edff);
+    overflow-x: hidden;
+}
+
+button, a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+button {
+    font-family: inherit;
+}
+
+.page {
+    display: none;
+    min-height: 100vh;
+    padding: 28px 16px 55px;
+    position: relative;
+}
+
+.page.active {
+    display: block;
+    animation: pageIn 0.8s ease both;
+}
+
+@keyframes pageIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1, h2, h3, .script {
+    font-family: 'Dancing Script', cursive;
+}
+
+h1 {
+    font-size: clamp(2.7rem, 7vw, 4.8rem);
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+p {
+    line-height: 1.85;
+}
+
+.subtitle {
+    margin: 12px auto;
+    max-width: 620px;
+    font-size: 1rem;
+    line-height: 1.8;
+    color: #93657b;
+}
+
+.center {
+    text-align: center;
+}
+
+/* Floating petals */
+
+.petal {
+    position: fixed;
+    top: -40px;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.8;
+    animation: falling linear forwards;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-30px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.85;
+    }
+    90% {
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(110vh) rotate(650deg);
+        opacity: 0;
+    }
+}
+
+/* Flower decorations */
+
+.flower {
+    position: absolute;
+    font-size: 2.3rem;
+    animation: flowerFloat 4s ease-in-out infinite;
+    pointer-events: none;
+    filter: drop-shadow(0 4px 5px #dba4c355);
+}
+
+.flower.one {
+    top: 22px;
+    left: 6%;
+}
+
+.flower.two {
+    top: 100px;
+    right: 7%;
+    animation-delay: 1s;
+}
+
+.flower.three {
+    bottom: 45px;
+    left: 8%;
+    animation-delay: 1.8s;
+}
+
+.flower.four {
+    bottom: 70px;
+    right: 8%;
+    animation-delay: 0.6s;
+}
+
+@keyframes flowerFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-8deg);
+    }
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+/* Header */
+
+.header {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.tiny-label {
+    display: inline-block;
+    padding: 9px 17px;
+    border-radius: 50px;
+    background: #ffffffa6;
+    border: 1px solid #ffffff;
+    color: #b15d83;
+    font-size: 0.77rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* Page 1 */
+
+#page1 {
+    display: none;
+}
+
+#page1.active {
+    display: block;
+}
+
+.garden {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px auto 10px;
+}
+
+.glow {
+    position: absolute;
+    width: 290px;
+    height: 290px;
+    background: #ffcae2;
+    filter: blur(70px);
+    opacity: 0.55;
+    border-radius: 50%;
+    animation: glowPulse 4s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        transform: scale(0.9);
+        opacity: 0.35;
+    }
+    50% {
+        transform: scale(1.12);
+        opacity: 0.65;
+    }
+}
+
+.envelope-wrap {
+    position: relative;
+    width: min(330px, 85vw);
+    height: 230px;
+    perspective: 1000px;
+    z-index: 2;
+    margin-top: 30px;
+}
+
+.envelope {
+    position: absolute;
+    inset: 0;
+    background: #f5a7c4;
+    border-radius: 9px;
+    box-shadow:
+        0 25px 60px #bf719b35,
+        inset 0 0 0 1px #ffffff55;
+    overflow: visible;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(140deg, #ffdce9, #ef91b5);
+    clip-path: polygon(0 0, 100% 0, 50% 62%);
+    z-index: 4;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg, #ed91b3, #fbc1d6);
+    clip-path: polygon(0 100%, 0 0, 50% 56%);
+    z-index: 3;
+}
+
+.envelope-side {
+    position: absolute;
+    inset: 0;
+    background: #f7b1cb;
+    clip-path: polygon(100% 0, 100% 100%, 50% 56%);
+    z-index: 3;
+}
+
+.envelope-bottom {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #f4a2c2, #f9c3d7);
+    clip-path: polygon(0 100%, 100% 100%, 50% 56%);
+    z-index: 5;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: #ffd8e6;
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 1s ease, z-index 0.1s 0.4s;
+    z-index: 7;
+}
+
+.letter-preview {
+    position: absolute;
+    left: 7%;
+    width: 86%;
+    height: 190px;
+    top: 15px;
+    background: var(--cream);
+    border-radius: 5px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    transition: transform 1s ease 0.4s;
+}
+
+.letter-preview span {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #bc6388;
+}
+
+.seal {
+    position: absolute;
+    top: 90px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d84e86, #f08bb3);
+    box-shadow: 0 6px 20px #a44c7535;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.6rem;
+    z-index: 9;
+    transition: opacity 0.4s;
+}
+
+.envelope-wrap.open .envelope-flap {
+    transform: rotateX(180deg);
+    z-index: 1;
+}
+
+.envelope-wrap.open .letter-preview {
+    transform: translateY(-125px);
+}
+
+.envelope-wrap.open .seal {
+    opacity: 0;
+}
+
+.open-btn, .nav-btn, .reel-btn {
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 50px;
+    padding: 14px 25px;
+    background: linear-gradient(135deg, #e979a5, #c765a1);
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 9px 22px #c765a130;
+    transition: transform 0.25s, box-shadow 0.25s;
+    margin: 10px 5px;
+}
+
+.open-btn:hover, .nav-btn:hover, .reel-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 28px #c765a140;
+}
+
+.open-btn:active, .nav-btn:active {
+    transform: scale(0.97);
+}
+
+.hint {
+    margin-top: 8px;
+    font-size: 0.86rem;
+    color: #a97a90;
+}
+
+/* Letter panel */
+
+.letter-panel {
+    max-width: 760px;
+    margin: 30px auto;
+    padding: clamp(22px, 5vw, 48px);
+    background:
+        radial-gradient(circle at 0 0, #fce0eb 0, transparent 24%),
+        radial-gradient(circle at 100% 100%, #eee2ff 0, transparent 27%),
+        #fffdf9;
+    border: 1px solid #f4d7e5;
+    border-radius: 22px;
+    box-shadow: 0 18px 65px #9f6d8d19;
+    position: relative;
+    display: none;
+    overflow: hidden;
+}
+
+.letter-panel.show {
+    display: block;
+    animation: letterReveal 1s ease both;
+}
+
+@keyframes letterReveal {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.97);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.letter-panel::before {
+    content: "🌸";
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2.4rem;
+    opacity: 0.65;
+}
+
+.letter-panel::after {
+    content: "🌷";
+    position: absolute;
+    bottom: 8px;
+    left: 14px;
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+.letter-title {
+    text-align: center;
+    margin-bottom: 22px;
+    color: #c2608b;
+}
+
+.letter-body p {
+    margin: 0 0 17px;
+    font-size: 0.98rem;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    color: #c45e8c;
+    font-size: 2rem;
+    margin-top: 25px;
+}
+
+.letter-footer {
+    text-align: center;
+    margin-top: 24px;
+    font-size: 0.83rem;
+    color: #b37b96;
+}
+
+/* Second page */
+
+#page2 {
+    display: none;
+}
+
+#page2.active {
+    display: block;
+}
+
+.reels-container {
+    max-width: 1000px;
+    margin: 35px auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.reel-card {
+    background: #ffffffb8;
+    backdrop-filter: blur(10px);
+    border: 1px solid #ffffff;
+    border-radius: 21px;
+    padding: 24px 18px;
+    box-shadow: 0 12px 35px #a77b9512;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.reel-card::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #ffd4e5;
+    filter: blur(35px);
+    top: -35px;
+    right: -35px;
+    opacity: 0.65;
+}
+
+.reel-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 18px 40px #a77b9524;
+}
+
+.reel-number {
+    width: 39px;
+    height: 39px;
+    background: linear-gradient(135deg, #ffd8e8, #e4d4ff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: 800;
+    color: #a4547c;
+    margin-bottom: 17px;
+    position: relative;
+}
+
+.reel-card h3 {
+    font-size: 1.75rem;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    color: #bb6088;
+    position: relative;
+}
+
+.reel-card p {
+    font-size: 0.91rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #8b6478;
+    flex-grow: 1;
+    position: relative;
+}
+
+.reel-btn {
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+.reel-btn.disabled {
+    background: #c9b9c5;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.back-note {
+    text-align: center;
+    max-width: 620px;
+    margin: 15px auto 25px;
+    padding: 20px;
+    background: #ffffffa6;
+    border: 1px solid white;
+    border-radius: 20px;
+    color: #90667d;
+}
+
+.footer {
+    text-align: center;
+    margin: 35px auto 0;
+    color: #b17b96;
+    font-size: 0.82rem;
+}
+
+/* Responsive */
+
+@media (max-width: 760px) {
+    .reels-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .flower {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .reels-container {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+    }
+
+    .garden {
+        min-height: 290px;
+    }
+
+    .envelope-wrap {
+        height: 200px;
+    }
+
+    .letter-preview {
+        height: 165px;
+    }
+
+    .envelope-flap {
+        height: 105px;
+    }
+
+    .seal {
+        top: 75px;
+    }
+
+    .envelope-wrap.open .letter-preview {
+        transform: translateY(-95px);
+    }
+
+    .letter-panel {
+        padding: 25px 20px;
+    }
+
+    .letter-body p {
+        font-size: 0.94rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- PAGE 1: THE FLOWER LETTER -->
+
+<section class="page active" id="page1">
+
+    <div class="flower one">🌷</div>
+    <div class="flower two">🌼</div>
+    <div class="flower three">🌸</div>
+    <div class="flower four">🌹</div>
+
+    <header class="header">
+
+        <div class="tiny-label">NANNA BABBUGEY ONDU LETTER ♡</div>
+
+        <h1>For My Achuu</h1>
+
+        <p class="subtitle">
+            For the girl who i love the most..I love you nanna dolu molu
+        </p>
+
+    </header>
+
+    <div class="garden">
+
+        <div class="glow"></div>
+
+        <div class="envelope-wrap" id="envelope">
+
+            <div class="envelope">
+
+                <div class="letter-preview">
+                    <span>For my favourite girl 🌸</span>
+                </div>
+
+                <div class="envelope-side"></div>
+                <div class="envelope-bottom"></div>
+                <div class="envelope-flap"></div>
+
+                <div class="seal">♥</div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="center">
+
+        <button class="open-btn" id="openLetter">
+            letter open madu nanna laddoo💌
+        </button>
+
+        <p class="hint">idralliii full love untu..ningey madidu nanu 🌷</p>
+
+    </div>
+
+
+    <article class="letter-panel" id="letterPanel">
+
+        <h2 class="letter-title">My dearest Achu 🌸</h2>
+
+        <div class="letter-body">
+
+            <p>
+                Achu,nanna chinna 🥺❤️
+            </p>
+
+            <p>
+               Ninu IV gey barlike bejar alli iddi antha gothuntu baabey.like that old friendship illa
+               like that old bond miss madthidi antha..nangey yavagalu ninu happy aagi nodbeku
+               i know iga things yella bejar agthade..eveen ninu entha madadesa ..that understaning..that bond hoda
+               bejar alli iddi antha..ole days yella nenp agtha untu ala?
+
+            </p>
+
+            <p>
+                ah friendship modlina haagey illa antha ningey eshtu bejar agthade antha nange artha agthade aithaa
+                ellaru ottigey irvaga...ninu oble agiddi antha bbhaya irbahudu alaa..mathey ade feeling 
+                opas opas think madvaga bejar agthaed ala baabey.
+            </p>
+
+            <p>
+                Bangara, ninna feelings annu naanu ignore madudilla aithaa
+                Neenu yaake bejar aagidi,
+                yaake bhaya padta iddi anta naanu kelade,
+                just "IV gey ba " anta helidre saakagudilla.
+                ninge innu support madthene aithhaa
+                ninnanu innu thumba support and happy madthene aitha.
+            </p>
+
+            <p>
+                I am sorry, achu, if I made you feel like
+                naanentha ashtu madthilla ningey antha.
+                Ninna feelings nange important baabey.
+                Ninna happiness sa important nangey.
+            </p>
+
+            <p>
+                Nanna babyy, ondu vishya nenpittko.
+                Ninna life alli swalpa friendships change aagirbahudu, 
+                but ninu worthy alla antha..or ninu unloved antha thilkobeda aitha
+                baby ninna value nanu/ondu group of people treat madudara mele depend agudilla baabey
+                
+            </p>
+
+            <p>
+                neenu modlinna haaagey happy agbeku antha nangesa untu baabye.
+                adre adikke ninna sadness annu hide madbeku antha nanu heltha illa
+                ninu strong aagi act madbeku anthasa illa.ningey hurt agide andre
+                adu opudralli enthasa tappila aithhaa..you don't have to hide anything.
+            </p>
+
+            <p>
+                IV ge hoglike ninnanu confident madthene aitha,
+                naavu adara bagge calm aagi maathadva aithaa.
+                Yaava situation ninge kashta aagtha untu
+                ninge yaar jothe comfortable aagthade,
+                neenu obbale left out feel agada haagey
+                nanu nodi kolthene aithaaa.
+            </p>
+
+            <p>
+                Achu, ninna life alli innu thumba beautiful
+                memories barbeku.Hosa friends, hosa places,
+                unexpected happiness,chikka chikka moments
+                innu ninanu wait madtha untu.adadu yella
+                ninna future decide madudilla aitha
+            </p>
+
+            <p>
+                ninna manasu heavy agirva dina..nanu ninnanu
+                care madthene aithaaa.ninna smile important.
+                aadre ninu sad agirvagasa nangey ninu thumba important 
+            </p>
+
+            <p>
+                Naanu yella problems na magic haage fix maadlikke
+                aagudilla,bangara.aadre ninna maathannu kellade irudilla
+                ninna jothey maathadi artha madike try madthene aitha
+            </p>
+
+            <p>
+                So please,ninna feelings annu obbale carry
+                maadbeda aitha. Ninge entha beku antha helu.
+                Ninna bhaya enu antha helu.
+                Naavu ondondagi think maadva aitha. ❤️
+            </p>
+
+            <p>
+                And one last thing, my little baby...
+                ninna happiness bereyavara approval mele
+                depend aagbardu.Ninna life nindu.
+                ningey hegey bekadru happy aagi irbahudu
+            </p>
+
+            <p>
+                I hope ee chikka letter odida mele,
+                ninna manassige swalpa aadru peace sigli.
+                Ninna tears annu force maadi nillisbeku antha alla
+                ninna heart annu yaaradru gently understand
+                maadtha iddare antha feeling barli anta.
+            </p>
+
+        </div>
+
+        <div class="signature">
+            Always wishing happiness for you,<br>
+            your Ashray(babbu)❤️
+        </div>
+
+        <div class="letter-footer">
+            Stay happy nanna baabey..and please don't ignore me..
+            please nangey update kodu..like entha thindi..entha madthidi
+            odthidre..odthidene antha heluu aithaaa
+            naa tappa reply kodthene ningey..please don't ignore me baabyyy🌷
+        </div>
+
+    </article>
+
+
+    <div class="center" id="letterNavigation" style="display:none;">
+
+        <button class="nav-btn" onclick="showPage(2)">
+            idu full videos nodu 🌼 →
+        </button>
+
+    </div>
+
+    <div class="footer">
+        Idella nanna babbugey aithaaaa...🌸
+    </div>
+
+</section>
+
+
+<!-- PAGE 2: INSTAGRAM REELS AND LITTLE REMINDERS -->
+
+<section class="page" id="page2">
+
+    <div class="flower one">🌸</div>
+    <div class="flower two">🌷</div>
+    <div class="flower three">🌼</div>
+    <div class="flower four">🌻</div>
+
+    <header class="header">
+
+        <div class="tiny-label">LITTLE REMINDERS FOR YOUR HEART ♡</div>
+
+        <h1>Dear Achuu, Remember...</h1>
+
+        <p class="subtitle">
+            baabegey yella heavy feel agthidre,
+            illi ba and idu link open madu aitha.
+            You don't have to figure out everything today.you are not alone 🌷
+        </p>
+
+    </header>
+
+
+    <div class="back-note">
+
+        <h2 style="margin-bottom:10px;">A note for my little babbu 🌸</h2>
+
+        <p>
+            Ninna happiness important, Achu.
+            Rest bekaadre rest maadu.
+            Cry maadbekidre cry baabey.
+            One difficult chapter doesn't define your whole story. ❤️
+        </p>
+
+    </div>
+
+
+    <div class="reels-container" id="reelsContainer">
+        <!-- Cards are created using JavaScript -->
+    </div>
+
+
+    <div class="center">
+
+        <button class="nav-btn" onclick="showPage(1)">
+            ← Back to your flower letter 💌
+        </button>
+
+    </div>
+
+    <div class="footer">
+        Made for you nanna little dolu moluu 🌷
+        <br><br>
+        stay kushi aitha ♡
+    </div>
+
+</section>
+
+
+<script>
+
+/*
+=========================================================
+EDIT YOUR 11 REELS HERE
+=========================================================
+
+1. Keep the first reel link.
+2. Replace the remaining 10 empty links with your Instagram URLs.
+3. Replace each quote with the quote from your reel or a
+   personal message you want Achu to remember.
+
+IMPORTANT:
+The website does not download Instagram videos.
+The buttons open the original Instagram reel.
+=========================================================
+*/
+
+const reels = [
+    {
+        title: "Love Yourself 🌸",
+        quote: "Love yourself... make happy that old baby Krithi. ❤️",
+        url: "https://www.instagram.com/reel/Deiu7OFFLPD/?mdxt=MTl4bzV5YXZydHVteQ=="
+    },
+
+    {
+        title: "Fall in Love with Life Again 🌷",
+        quote: "A little reminder to find joy in life again, one beautiful moment at a time. 🌸",
+        url: "https://www.instagram.com/reel/DeJRRpVT3_m/?srtk=MXVsczlrMXlsYm55dA=="
+    },
+
+    {
+        title: "When Life Feels Hard 🫂",
+        quote: "If you think your life is too hard, take a breath and remember that you don't have to figure everything out today. ❤️",
+        url: "https://www.instagram.com/reel/DdRCDIRjd-z/?rpxt=MWF2bzBhem5wMnk5aA=="
+    },
+
+    {
+        title: "Believe in Yourself 🦋",
+        quote: "Believe in yourself, bangara. You are capable of more than you think. ✨",
+        url: "https://www.instagram.com/reel/Dcto2jqzVDZ/?exln=MmU4Y2I0YjhkcmR3"
+    },
+
+    {
+        title: "Stay Strong & Be Yourself 🌼",
+        quote: "Stay strong and be yourself. You don't have to change who you are to deserve love and friendship. 💗",
+        url: "https://www.instagram.com/reel/DeWuQ3YIHNL/?mdxt=MTZycXZmZ3c0emVtMQ=="
+    },
+
+    {
+        title: "Five Little Rules 🌻",
+        quote: "Five little reminders to protect your peace, believe in yourself, and keep growing. 🌱",
+        url: "https://www.instagram.com/reel/Dd7nN7Ohj6J/?rpxt=MXNjYnh5ODZrY2htNw=="
+    },
+
+    {
+        title: "You're Doing Great, My Love 💕",
+        quote: "You are doing great, my love. Even on the days when you feel lost, please be gentle with yourself. 🫂",
+        url: "https://www.instagram.com/reel/DeitPiBp6Rp/?srtk=Z2YyZXNxdHR3Y2Rh"
+    },
+
+    {
+        title: "you are not a villain baabey 🌈",
+        quote: "Let's goo, bangara!you are a gem ❤️",
+        url: "https://www.instagram.com/reel/DcWyFnttSXq/?srtk=andoMDhiamlqaWU1"
+    },
+
+    {
+        title: "you got this babbu..you can do whatever you wanted to do aithaa 🌷",
+        quote: "You deserve happiness, peace, and friendships where you feel wanted. Never forget that. 💗",
+        url: "https://www.instagram.com/reel/DdyzaWouvBz/?mdxt=MWczaWxtbG1lZXBtZw=="
+    },
+
+    {
+        title: "It's your life my baddie achuu🌸",
+        quote: "You can miss the old days and still make new memories that become special to you. 🦋",
+        url: "https://www.instagram.com/reel/Ddbw1ZYoiVb/?vrfl=dTNzcnV1YWVtYzZ6"
+    },
+
+    {
+        title: "Forgive yourself and always Believe in Yourself ✨",
+        quote: "Take your time, little flower. You are growing, learning, and becoming yourself every day. 🌱",
+        url: "https://www.instagram.com/reel/Ddlzc4NI8lP/?srtk=cGNzNWNydzI5MHV4"
+    }
+];
+
+/* Render all 11 cards */
+
+const container = document.getElementById("reelsContainer");
+
+reels.forEach((reel, index) => {
+
+    const card = document.createElement("article");
+    card.className = "reel-card";
+
+    const number = document.createElement("div");
+    number.className = "reel-number";
+    number.textContent = String(index + 1).padStart(2, "0");
+
+    const title = document.createElement("h3");
+    title.textContent = reel.title;
+
+    const quote = document.createElement("p");
+    quote.textContent = reel.quote;
+
+    const link = document.createElement("a");
+    link.className = "reel-btn";
+
+    if (reel.url && reel.url.trim() !== "") {
+
+        link.href = reel.url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Watch on Instagram ↗";
+
+    } else {
+
+        link.href = "#";
+        link.classList.add("disabled");
+        link.textContent = "Add your reel link ♡";
+
+        link.addEventListener("click", function(event) {
+            event.preventDefault();
+            alert("Add the Instagram reel link in the reels array first 🌸");
+        });
+
+    }
+
+    card.appendChild(number);
+    card.appendChild(title);
+    card.appendChild(quote);
+    card.appendChild(link);
+
+    container.appendChild(card);
+
+});
+
+
+/* Open the letter */
+
+const openButton = document.getElementById("openLetter");
+const envelope = document.getElementById("envelope");
+const letterPanel = document.getElementById("letterPanel");
+const letterNavigation = document.getElementById("letterNavigation");
+
+let letterOpened = false;
+
+openButton.addEventListener("click", function() {
+
+    if (letterOpened) {
+        letterPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+        return;
+    }
+
+    letterOpened = true;
+
+    envelope.classList.add("open");
+
+    openButton.textContent = "Your letter is waiting below 🌷";
+
+    setTimeout(function() {
+
+        letterPanel.classList.add("show");
+
+        letterNavigation.style.display = "block";
+
+        letterPanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+        createFlowerBurst();
+
+    }, 950);
+
+});
+
+
+/* Switch between the two pages */
+
+function showPage(pageNumber) {
+
+    document.querySelectorAll(".page").forEach(page => {
+        page.classList.remove("active");
+    });
+
+    document.getElementById("page" + pageNumber).classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    createFlowerBurst();
+
+}
+
+
+/* Falling petals */
+
+const petalSymbols = ["🌸", "🌷", "🌼", "💗", "✿", "❀"];
+
+function createPetal() {
+
+    const petal = document.createElement("span");
+
+    petal.className = "petal";
+
+    petal.textContent =
+        petalSymbols[Math.floor(Math.random() * petalSymbols.length)];
+
+    petal.style.left = Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        (12 + Math.random() * 17) + "px";
+
+    petal.style.animationDuration =
+        (7 + Math.random() * 7) + "s";
+
+    document.body.appendChild(petal);
+
+    setTimeout(function() {
+        petal.remove();
+    }, 15000);
+
+}
+
+setInterval(createPetal, 700);
+
+
+/* Flower burst when a page opens or the letter is revealed */
+
+function createFlowerBurst() {
+
+    const symbols = ["🌸", "🌷", "🌼", "💗", "🌺"];
+
+    for (let i = 0; i < 12; i++) {
+
+        setTimeout(function() {
+
+            const flower = document.createElement("span");
+
+            flower.className = "petal";
+
+            flower.textContent =
+                symbols[Math.floor(Math.random() * symbols.length)];
+
+            flower.style.left = (10 + Math.random() * 80) + "vw";
+            flower.style.top = (10 + Math.random() * 20) + "vh";
+            flower.style.fontSize = "23px";
+            flower.style.animationDuration = "5s";
+
+            document.body.appendChild(flower);
+
+            setTimeout(function() {
+                flower.remove();
+            }, 5500);
+
+        }, i * 100);
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
